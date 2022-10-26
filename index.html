@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script>
+      function clr() {
+        document.getElementById("log").innerHTML = "";
+      }
+      
+      window.addEventListener("message", (e) => {
+        console.log("Received data:", e.data);
+        el = document.getElementById("log");
+        logs = el.innerHTML;
+        logs += `<br/> ${e.data} (stringified: ${JSON.stringify(e.data)})`;
+        el.innerHTML = logs;
+      });
+    </script>
+  </head>
+  <body>
+    <b><i>Events appear below:</i></b>
+    <button onclick="clr()">Clear</button>
+    <p id="log"></p>
+  </body>
+</html>
